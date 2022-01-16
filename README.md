@@ -1,5 +1,37 @@
 # Reset_mysql_root_password
 
+Get-service
+
+net stop mysql
+
+get-preocess
+
+stop process -name mysql -force
+
+mysql --skip-grant-tables
+or
+mysql_safe --skip-grant-tables
+
+mysql
+
+ UPDATE mysql.user SET Password=PASSWORD('password')WHERE User='root'; 
+ 
+ or
+ 
+ UPDATE user SET Password = PASSWORD('password') WHERE User ='root';
+
+CREATE USER 'abx'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'abx'@'localhost' WITH GRANT OPTION;
+flush privileges;
+
+UPDATE user SET Password = PASSWORD('password') WHERE User ='pma';
+flush privileges;
+
+open seprate cmd
+and try to login
+
+
+
 Stop Mysql service by going into Administrative tools > Services
 
 
